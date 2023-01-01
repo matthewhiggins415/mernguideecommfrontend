@@ -1,11 +1,11 @@
 import React from 'react'
-import { NavbarContainer } from '../styles/components/Navbar.styles'
+import { NavbarContainer, NavbarLink } from '../styles/components/Navbar.styles'
 
 const Navbar = () => {
   return (
     <NavbarContainer>
-      <p>logo</p>
-      <p>cart</p>
+      <NavbarLink to="/">logo</NavbarLink>
+      <NavbarLink to="/cart">cart</NavbarLink>
     </NavbarContainer>
   )
 }
