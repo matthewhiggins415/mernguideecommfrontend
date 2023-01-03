@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { getAllProducts } from '../api/product'
+import Product from '../components/Product'
+import { ScreenContainer, ProductContainer } from '../styles/screens/Homescreen.styles'
 
 const HomeScreen = () => {
   const [products, setProducts] = useState([])
@@ -18,16 +20,16 @@ const HomeScreen = () => {
   }, [])
 
   return (
-    <div>
+    <ScreenContainer>
       <h1>Homescreen</h1>
-      <div>
+      <ProductContainer>
         { products.length > 0 ? 
             products.map((product) => (
-              <h1>{product.name}</h1>
+              <Product data={product}/>
             )) 
           : <p>no products</p> }
-      </div>
-    </div>
+      </ProductContainer>
+    </ScreenContainer>
   )
 }
 
