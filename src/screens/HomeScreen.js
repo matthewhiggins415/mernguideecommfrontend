@@ -21,7 +21,7 @@ const HomeScreen = () => {
 
   return (
     <ScreenContainer>
-      <h1>Homescreen</h1>
+      <h1>Featured Products:</h1>
       <ProductContainer>
         { products.length > 0 ? 
             products.map((product) => (

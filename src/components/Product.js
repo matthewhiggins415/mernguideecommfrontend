@@ -1,12 +1,12 @@
 import React from 'react'
-import { ProductContainer } from '../styles/components/Product.styles'
+import { ProductContainer, Image } from '../styles/components/Product.styles'
 
 const Product = ({ data }) => {
   return (
     <ProductContainer to={`/product/${data._id}`}>
-      <img src={data.imageOne}/>
+      <Image src={data.imageOne}/>
       <h1>{data.name}</h1>
-      <p>{"$" + `${data.price}`}</p>
+      <h3>{"$" + `${data.price}`}</h3>
     </ProductContainer>
   )
 }

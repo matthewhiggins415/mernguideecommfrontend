@@ -4,8 +4,8 @@ import { NavbarContainer, NavbarLink } from '../styles/components/Navbar.styles'
 const Navbar = () => {
   return (
     <NavbarContainer>
-      <NavbarLink to="/">logo</NavbarLink>
-      <NavbarLink to="/cart">cart</NavbarLink>
+      <NavbarLink to="/">Gallactic Cat</NavbarLink>
+      <NavbarLink to="/cart">Cart</NavbarLink>
     </NavbarContainer>
   )
 }
