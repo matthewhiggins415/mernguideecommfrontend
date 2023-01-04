@@ -6,7 +6,7 @@ const Product = ({ data }) => {
     <ProductContainer to={`/product/${data._id}`}>
       <Image src={data.imageOne} alt={"image of product " + data.name}/>
       <h1>{data.name}</h1>
-      <h3>{"$" + `${data.price}`}</h3>
+      <h3>{"$" + data.price}</h3>
     </ProductContainer>
   )
 }
