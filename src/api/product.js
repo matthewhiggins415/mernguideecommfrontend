@@ -7,7 +7,11 @@ import axios from 'axios'
 export const getAllProducts = () => {
   return axios.get(apiUrl + "/products")
 }
-// read single 
+
+// read single
+export const getASingleProduct = (id) => {
+  return axios.get(apiUrl + `/products/${id}`)
+}
 
 // update 
 
