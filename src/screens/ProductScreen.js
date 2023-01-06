@@ -6,6 +6,7 @@ import { getASingleProduct } from '../api/product'
 import { ScreenContainer, BackBtn, ProductInfoContainer, LargeImg, SmallImgContainer, SmallImg, Name, Description, Price, AddToCart } from '../styles/screens/ProductScreen.styles'
 
 const ProductScreen = () => {
+  const [largeImageSrc, setLargeImageSrc] = useState('')
   const [product, setProduct] = useState({})
   let { id } = useParams()
   console.log(id)
@@ -15,21 +16,26 @@ const ProductScreen = () => {
       let response = await getASingleProduct(id)
       console.log(response)
       setProduct(response.data.product)
+      setLargeImageSrc(response.data.product.imageOne)
     }
 
     fetchProduct(id)
   }, [])
 
+  const handleImageChange = (src) => {
+    setLargeImageSrc(src)
+  }
+
   return (
     <ScreenContainer>
       <BackBtn to="/">back</BackBtn>
       <ProductInfoContainer>
-        <LargeImg src={product.imageOne}/>
+        <LargeImg src={largeImageSrc}/>
         <SmallImgContainer>
-          <SmallImg  src={product.imageOne} />
-          <SmallImg  src={product.imageTwo} />
-          <SmallImg  src={product.imageThree} />
-          <SmallImg  src={product.imageFour} />
+          <SmallImg onClick={() => {handleImageChange(product.imageOne)}} src={product.imageOne} />
+          <SmallImg onClick={() => {handleImageChange(product.imageTwo)}} src={product.imageTwo} />
+          <SmallImg onClick={() => {handleImageChange(product.imageThree)}} src={product.imageThree} />
+          <SmallImg onClick={() => {handleImageChange(product.imageFour)}} src={product.imageFour} />
         </SmallImgContainer>
         <Name>{product.name}</Name>
         <Description>{product.description}</Description>

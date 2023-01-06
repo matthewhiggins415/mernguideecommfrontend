@@ -46,6 +46,7 @@ export const SmallImgContainer = styled.div`
 export const SmallImg = styled.img`
   width: 80px;
   height: 80px;
+  cursor: pointer;
 `
 
 export const Name = styled.h1`
