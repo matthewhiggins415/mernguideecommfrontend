@@ -5,11 +5,10 @@ import { getASingleProduct } from '../api/product'
 //import styles 
 import { ScreenContainer, BackBtn, ProductInfoContainer, LargeImg, SmallImgContainer, SmallImg, Name, Description, Price, AddToCart } from '../styles/screens/ProductScreen.styles'
 
-const ProductScreen = () => {
+const ProductScreen = ({ cart }) => {
   const [largeImageSrc, setLargeImageSrc] = useState('')
   const [product, setProduct] = useState({})
   let { id } = useParams()
-  console.log(id)
 
   useEffect(() => {
     const fetchProduct = async (id) => {
@@ -26,6 +25,11 @@ const ProductScreen = () => {
     setLargeImageSrc(src)
   }
 
+  const addToCart = (product) => {
+    console.log('added product')
+    cart.push(product)
+  }
+
   return (
     <ScreenContainer>
       <BackBtn to="/">back</BackBtn>
@@ -40,7 +44,7 @@ const ProductScreen = () => {
         <Name>{product.name}</Name>
         <Description>{product.description}</Description>
         <Price>{"$" + product.price}</Price>
-        <AddToCart>add to cart</AddToCart>
+        <AddToCart onClick={() => {addToCart(product)}}>add to cart</AddToCart>
       </ProductInfoContainer>
     </ScreenContainer>
   )
