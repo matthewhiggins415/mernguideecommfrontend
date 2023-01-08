@@ -12,18 +12,18 @@ import ProductScreen from './screens/ProductScreen'
 require('./App.css')
 
 function App() {
-  let cart = []
   return (
     <Router>
       <div>
         <Navbar />
         <Routes>
-          <Route path="/" element={<HomeScreen />} exact/>
-          <Route path="/product/:id" element={<ProductScreen cart={cart}/>} exact/>
-          <Route path="/cart" element={<CartScreen cart={cart} />} exact/>
+            <Route path="/" element={<HomeScreen />} exact/>
+            <Route path="/product/:id" element={<ProductScreen />} exact/>
+            <Route path="/cart" element={<CartScreen />} exact/>
         </Routes>
       </div>
     </Router>
+
   );
 }
 

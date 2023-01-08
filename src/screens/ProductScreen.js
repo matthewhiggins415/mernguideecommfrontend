@@ -5,7 +5,7 @@ import { getASingleProduct } from '../api/product'
 //import styles 
 import { ScreenContainer, BackBtn, ProductInfoContainer, LargeImg, SmallImgContainer, SmallImg, Name, Description, Price, AddToCart } from '../styles/screens/ProductScreen.styles'
 
-const ProductScreen = ({ cart }) => {
+const ProductScreen = () => {
   const [largeImageSrc, setLargeImageSrc] = useState('')
   const [product, setProduct] = useState({})
   let { id } = useParams()
@@ -25,11 +25,6 @@ const ProductScreen = ({ cart }) => {
     setLargeImageSrc(src)
   }
 
-  const addToCart = (product) => {
-    console.log('added product')
-    cart.push(product)
-  }
-
   return (
     <ScreenContainer>
       <BackBtn to="/">back</BackBtn>
@@ -44,7 +39,7 @@ const ProductScreen = ({ cart }) => {
         <Name>{product.name}</Name>
         <Description>{product.description}</Description>
         <Price>{"$" + product.price}</Price>
-        <AddToCart onClick={() => {addToCart(product)}}>add to cart</AddToCart>
+        <AddToCart>add to cart</AddToCart>
       </ProductInfoContainer>
     </ScreenContainer>
   )

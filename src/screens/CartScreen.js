@@ -1,9 +1,13 @@
 import React from 'react'
+import { CartScreenContainer } from '../styles/screens/CartScreen.styles'
 
-const CartScreen = ({ cart }) => {
-  console.log(cart)
+const CartScreen = () => {
   return (
-    <div>CartScreen</div>
+   <CartScreenContainer>
+     <h1>Order Summary</h1>
+     <div></div>
+     <div></div>
+   </CartScreenContainer>
   )
 }
 
