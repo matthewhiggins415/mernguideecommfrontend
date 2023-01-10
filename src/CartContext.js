@@ -1,8 +1,9 @@
 import { createContext, useState } from "react";
 
+// define our context 
 export const CartContext = createContext({
   items: [], 
-  // items of cart = [{id: gsy2456hkwwklmse, price: 30, quantity: 2}, {id: whuiedw743, price: 15, quantity: 1}]
+  // items of cart = [{id: gsy2456hkwwklmse, src: 'src', price: 30, quantity: 2}, {id: whuiedw743, price: 15, quantity: 1}]
   getProductQuantity: () => {}, 
   addOneToCart: () => {}, 
   removeOneFromCart: () => {},
@@ -10,6 +11,7 @@ export const CartContext = createContext({
   getTotalCost: () => {}
 })
 
+// define our provider
 export const CartProvider = ({children}) => {
   const [cartProducts, setCartProducts] = useState([])
 
@@ -23,11 +25,11 @@ export const CartProvider = ({children}) => {
     return quantity
   }
 
-  const addOneToCart = (id, price) => {
+  const addOneToCart = (id, src, price) => {
     const quantity = getProductQuantity(id)
 
     if (quantity === 0) {
-      setCartProducts([...cartProducts, {id: id, price: price, quantity: 1}])
+      setCartProducts([...cartProducts, {id: id, src: src, price: price, quantity: 1}])
     } else {
         setCartProducts(
           cartProducts.map(

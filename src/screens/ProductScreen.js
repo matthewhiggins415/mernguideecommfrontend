@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router'
 import { getASingleProduct } from '../api/product'
 
-//implement cart 
+//import cart 
 import { useContext } from 'react'
 import { CartContext } from '../CartContext'
 
@@ -14,9 +14,9 @@ const ProductScreen = () => {
   const [product, setProduct] = useState({})
   let { id } = useParams()
 
-  //access the cart 
-  let cart = useContext(CartContext)
-  console.log("cart from product details screen:", cart)
+  //get the cart 
+  const cart = useContext(CartContext)
+  console.log(cart)
 
   useEffect(() => {
     const fetchProduct = async (id) => {
@@ -33,8 +33,8 @@ const ProductScreen = () => {
     setLargeImageSrc(src)
   }
 
-  const handleAddToCart = (id, price) => {
-    cart.addOneToCart(id, price)
+  const handleAddToCart = (id, src, price) => {
+    cart.addOneToCart(id, src, price)
   }
 
   return (
@@ -51,7 +51,7 @@ const ProductScreen = () => {
         <Name>{product.name}</Name>
         <Description>{product.description}</Description>
         <Price>{"$" + product.price}</Price>
-        <AddToCart onClick={() => {handleAddToCart(product._id, product.price)}}>add to cart</AddToCart>
+        <AddToCart onClick={() => {handleAddToCart(product._id, product.imageOne, product.price)}}>add to cart</AddToCart>
       </ProductInfoContainer>
     </ScreenContainer>
   )
