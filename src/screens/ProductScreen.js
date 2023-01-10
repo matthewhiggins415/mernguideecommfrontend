@@ -33,8 +33,8 @@ const ProductScreen = () => {
     setLargeImageSrc(src)
   }
 
-  const handleAddToCart = (id, src, price) => {
-    cart.addOneToCart(id, src, price)
+  const handleAddToCart = (id, src, price, name) => {
+    cart.addOneToCart(id, src, price, name)
   }
 
   return (
@@ -51,7 +51,7 @@ const ProductScreen = () => {
         <Name>{product.name}</Name>
         <Description>{product.description}</Description>
         <Price>{"$" + product.price}</Price>
-        <AddToCart onClick={() => {handleAddToCart(product._id, product.imageOne, product.price)}}>add to cart</AddToCart>
+        <AddToCart onClick={() => {handleAddToCart(product._id, product.imageOne, product.price, product.name)}}>add to cart</AddToCart>
       </ProductInfoContainer>
     </ScreenContainer>
   )
