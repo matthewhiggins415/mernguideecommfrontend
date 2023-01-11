@@ -1,5 +1,5 @@
 import React from 'react'
-import { CartScreenContainer } from '../styles/screens/CartScreen.styles'
+import { CartScreenContainer, CartItemsContainer } from '../styles/screens/CartScreen.styles'
 
 import CartItem from '../components/CartItem'
 
@@ -11,11 +11,11 @@ const CartScreen = () => {
   return (
    <CartScreenContainer>
      <h1>Order Summary</h1>
-     <div>
+     <CartItemsContainer>
        {cart.items.map((cartItem) => (
-         <CartItem data={cartItem}/>
+         <CartItem data={cartItem} key={cartItem.id}/>
        ))}
-     </div>
+     </CartItemsContainer>
      <div></div>
    </CartScreenContainer>
   )
