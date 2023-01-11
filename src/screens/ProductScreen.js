@@ -27,7 +27,7 @@ const ProductScreen = () => {
     }
 
     fetchProduct(id)
-  }, [])
+  }, [id])
 
   const handleImageChange = (src) => {
     setLargeImageSrc(src)
