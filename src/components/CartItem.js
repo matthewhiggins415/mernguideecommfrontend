@@ -1,7 +1,25 @@
 import React from 'react'
 import { CartItemContainer, LeftContainer, Img, RightContainer, QuantityContainer, QuantityBtn, RemoveBtn } from '../styles/components/CartItem.styles'
 
+import { useContext } from 'react'
+import { CartContext } from '../CartContext'
+
 const CartItem = ({ data }) => {
+
+  const cart = useContext(CartContext)
+
+  const handleRemoveItem = (id) => {
+    cart.deleteFromCart(id)
+  }
+
+  const handleReduceQty = (id) => {
+    cart.removeOneFromCart(id)
+  }
+
+  const handleIncreaseQty = (id) => {
+    cart.addOneToCart(id)
+  }
+
   return (
     <CartItemContainer>
       <LeftContainer>
@@ -10,12 +28,12 @@ const CartItem = ({ data }) => {
       </LeftContainer>
       <RightContainer>
         <QuantityContainer>
-          <QuantityBtn>-</QuantityBtn>
+          <QuantityBtn onClick={() => handleReduceQty(data.id)}>-</QuantityBtn>
           <h2>{data.quantity}</h2>
-          <QuantityBtn>+</QuantityBtn>
+          <QuantityBtn onClick={() => handleIncreaseQty(data.id)}>+</QuantityBtn>
         </QuantityContainer>
-        <h2>{data.price}</h2>
-        <RemoveBtn>X</RemoveBtn>
+        <h2>{"$" + data.quantity * data.price}</h2>
+        <RemoveBtn onClick={() => handleRemoveItem(data.id)}>X</RemoveBtn>
       </RightContainer>
     </CartItemContainer>
   )
