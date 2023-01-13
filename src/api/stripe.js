@@ -9,4 +9,7 @@ export const checkout = async (cart) => {
   })
 
   console.log(response)
+  if (response.data.url) {
+    window.location.replace(response.data.url)
+  }
 }
