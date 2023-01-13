@@ -6,9 +6,16 @@ import CartItem from '../components/CartItem'
 import { useContext } from 'react'
 import { CartContext } from '../CartContext'
 
+import { checkout } from '../api/stripe'
+
 const CartScreen = ({ notify }) => {
   const cart = useContext(CartContext)
   console.log(cart.items)
+
+  const handleCheckout = (cart) => {
+    checkout(cart)
+  }
+
   return (
    <CartScreenContainer>
      <h1>Order Summary</h1>
@@ -17,7 +24,9 @@ const CartScreen = ({ notify }) => {
          <CartItem data={cartItem} key={cartItem.id}/>
        ))}
      </CartItemsContainer>
-     <div></div>
+     <div>
+       <button onClick={() => handleCheckout(cart.items)}>checkout</button>
+     </div>
    </CartScreenContainer>
   )
 }
