@@ -1,7 +1,7 @@
 import React from 'react'
 import { ProductContainer, Image } from '../styles/components/Product.styles'
 
-const Product = ({ data }) => {
+const Product = ({ data, notify }) => {
   return (
     <ProductContainer to={`/product/${data._id}`}>
       <Image src={data.imageOne} alt={"image of product " + data.name}/>

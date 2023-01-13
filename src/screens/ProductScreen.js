@@ -9,7 +9,7 @@ import { CartContext } from '../CartContext'
 //import styles 
 import { ScreenContainer, BackBtn, ProductInfoContainer, LargeImg, SmallImgContainer, SmallImg, Name, Description, Price, AddToCart } from '../styles/screens/ProductScreen.styles'
 
-const ProductScreen = () => {
+const ProductScreen = ({ notify }) => {
   const [largeImageSrc, setLargeImageSrc] = useState('')
   const [product, setProduct] = useState({})
   let { id } = useParams()
@@ -35,6 +35,7 @@ const ProductScreen = () => {
 
   const handleAddToCart = (id, src, price, name) => {
     cart.addOneToCart(id, src, price, name)
+    notify('item added', 'success')
   }
 
   return (

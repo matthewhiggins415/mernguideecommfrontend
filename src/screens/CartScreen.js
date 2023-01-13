@@ -5,7 +5,8 @@ import CartItem from '../components/CartItem'
 
 import { useContext } from 'react'
 import { CartContext } from '../CartContext'
-const CartScreen = () => {
+
+const CartScreen = ({ notify }) => {
   const cart = useContext(CartContext)
   console.log(cart.items)
   return (

@@ -3,7 +3,7 @@ import { getAllProducts } from '../api/product'
 import Product from '../components/Product'
 import { ScreenContainer, ProductContainer } from '../styles/screens/Homescreen.styles'
 
-const HomeScreen = () => {
+const HomeScreen = ({ notify }) => {
   const [products, setProducts] = useState([])
 
   useEffect(() => {
@@ -25,7 +25,7 @@ const HomeScreen = () => {
       <ProductContainer>
         { products.length > 0 ? 
             products.map((product) => (
-              <Product data={product}/>
+              <Product data={product} notify={notify}/>
             )) 
           : <p>no products</p> }
       </ProductContainer>
