@@ -11,9 +11,9 @@ import Navbar from './components/Navbar'
 import HomeScreen from './screens/HomeScreen'
 import CartScreen from './screens/CartScreen'
 import ProductScreen from './screens/ProductScreen'
+import SuccessScreen from './screens/SuccessScreen'
 
 import CartProvider from './CartContext'
-
 
 require('./App.css')
 
@@ -39,6 +39,7 @@ function App() {
           <Route path="/" element={<HomeScreen notify={handleNotify}/>} exact/>
           <Route path="/product/:id" element={<ProductScreen notify={handleNotify}/>} exact/>
           <Route path="/cart" element={<CartScreen notify={handleNotify}/>} exact/>
+          <Route path="/order/success" element={<SuccessScreen />} />
         </Routes>
        </div>
        </CartProvider>

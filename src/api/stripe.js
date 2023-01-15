@@ -13,3 +13,9 @@ export const checkout = async (cart) => {
     window.location.replace(response.data.url)
   }
 }
+
+export const success = async (url) => {
+  let response = await axios.get(apiUrl + url)
+
+  console.log(response)
+}
