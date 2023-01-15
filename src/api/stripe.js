@@ -15,7 +15,5 @@ export const checkout = async (cart) => {
 }
 
 export const success = async (url) => {
-  let response = await axios.get(apiUrl + url)
-
-  console.log(response)
+  return axios.get(apiUrl + url)
 }
