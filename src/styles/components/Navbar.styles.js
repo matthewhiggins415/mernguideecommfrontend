@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export const NavbarContainer = styled.div`
   width: 100%;
-  background-color: lightblue;
+  background-color: #FF5733;
   height: 100px;
   display: flex;
   align-items: center;
@@ -11,8 +11,10 @@ export const NavbarContainer = styled.div`
   padding: 30px;
 `
 export const NavbarLink = styled(Link)`
-  color: black;
-  font-size: 20px;
+  color: white;
+  font-family: 'Nunito', sans-serif;
+  font-size: 30px;
+  font-weight: 800;
   text-decoration: none;
   letter-spacing: 1.2px;
 `
