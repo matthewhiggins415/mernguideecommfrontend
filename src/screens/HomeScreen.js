@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { getAllProducts } from '../api/product'
 import Product from '../components/Product'
 import { ScreenContainer, ProductContainer } from '../styles/screens/Homescreen.styles'
+import ClipLoader from "react-spinners/ClipLoader";
 
 const HomeScreen = ({ notify }) => {
   const [products, setProducts] = useState([])
@@ -27,7 +28,7 @@ const HomeScreen = ({ notify }) => {
             products.map((product) => (
               <Product data={product} notify={notify}/>
             )) 
-          : <p>no products</p> }
+          : <ClipLoader color={'#FF5733'}/> }
       </ProductContainer>
     </ScreenContainer>
   )
