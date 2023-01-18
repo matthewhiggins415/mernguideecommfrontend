@@ -15,14 +15,15 @@ export const CartItemsContainer = styled.div`
 
 export const CheckoutBtn = styled.button`
 display: block;
-  padding: 10px 20px;
-  width: 60%;
-  margin: 30px auto;
+  padding: 20px 10px;
+  width: 300px;
+  margin: 20px auto;
   background-color: gold;
-  color: black;
-  border:1px solid gold;
   cursor: pointer;
+  border: none;
   font-size: 20px;
+  font-weight: 400;
+  letter-spacing: 1.2px;
 `
 
 export const EmptyCartContainer = styled.div`

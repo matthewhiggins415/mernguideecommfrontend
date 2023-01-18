@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 export const ScreenContainer = styled.div`
   min-height: 90vh;
-  width: 70%;
   margin: 40px auto;
+  padding: 20px;
   display: flex;
   flex-direction: column;
 `
@@ -18,6 +18,7 @@ export const BackBtn = styled(Link)`
   border: 1px solid black;
   letter-spacing: 1.2px;
   transition: 150ms ease-in-out;
+  margin-bottom: 20px;
 
   :hover {
     color: white;
@@ -32,12 +33,12 @@ export const ProductInfoContainer = styled.div`
 `
 
 export const LargeImg = styled.img`
-  width: 400px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
 `
 
 export const SmallImgContainer = styled.div`
-  width: 400px;
+  width: 300px;
   display: flex;
   justify-content: space-between;
   margin-top: 20px;
@@ -55,7 +56,7 @@ export const Name = styled.h1`
 `
 
 export const Description = styled.div`
-  width: 400px;
+  width: 300px;
   margin-top: 20px;
 `
 
@@ -66,7 +67,7 @@ export const Price = styled.h2`
 
 export const AddToCart = styled.button`
   padding: 20px 10px;
-  width: 400px;
+  width: 300px;
   margin: 20px auto;
   background-color: gold;
   cursor: pointer;
@@ -74,4 +75,5 @@ export const AddToCart = styled.button`
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 1.2px;
+  color: black;
 `

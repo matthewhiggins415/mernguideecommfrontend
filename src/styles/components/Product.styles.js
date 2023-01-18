@@ -10,7 +10,7 @@ export const ProductContainer = styled(Link)`
   justify-content: space-evenly;
   text-align: center;
   width: 250px;
-  height: 300px;
+  min-height: 350px;
   color: black;
   margin: 10px;
   text-decoration: none;
