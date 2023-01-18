@@ -14,13 +14,14 @@ export const CartItemsContainer = styled.div`
 `
 
 export const CheckoutBtn = styled.button`
-display: block;
+  display: block;
   padding: 20px 10px;
   width: 300px;
   margin: 20px auto;
   background-color: gold;
   cursor: pointer;
   border: none;
+  color: black;
   font-size: 20px;
   font-weight: 400;
   letter-spacing: 1.2px;
