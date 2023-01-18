@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react'
 import { useParams } from 'react-router'
 import { getASingleProduct } from '../api/product'
+import ClipLoader from "react-spinners/ClipLoader";
 
 //import cart 
 import { useContext } from 'react'
@@ -12,6 +13,7 @@ import { ScreenContainer, BackBtn, ProductInfoContainer, LargeImg, SmallImgConta
 const ProductScreen = ({ notify }) => {
   const [largeImageSrc, setLargeImageSrc] = useState('')
   const [product, setProduct] = useState({})
+  const [loading, setLoading] = useState(true)
   let { id } = useParams()
 
   //get the cart 
@@ -24,6 +26,7 @@ const ProductScreen = ({ notify }) => {
       console.log(response)
       setProduct(response.data.product)
       setLargeImageSrc(response.data.product.imageOne)
+      setLoading(false)
     }
 
     fetchProduct(id)
@@ -41,7 +44,7 @@ const ProductScreen = ({ notify }) => {
   return (
     <ScreenContainer>
       <BackBtn to="/">back</BackBtn>
-      <ProductInfoContainer>
+      { loading === false ? <ProductInfoContainer>
         <LargeImg src={largeImageSrc}/>
         <SmallImgContainer>
           <SmallImg onClick={() => {handleImageChange(product.imageOne)}} src={product.imageOne} />
@@ -53,7 +56,7 @@ const ProductScreen = ({ notify }) => {
         <Description>{product.description}</Description>
         <Price>{"$" + product.price}</Price>
         <AddToCart onClick={() => {handleAddToCart(product._id, product.imageOne, product.price, product.name)}}>add to cart</AddToCart>
-      </ProductInfoContainer>
+      </ProductInfoContainer> : <ProductInfoContainer><ClipLoader color={'#FF5733'}/></ProductInfoContainer>}
     </ScreenContainer>
   )
 }
