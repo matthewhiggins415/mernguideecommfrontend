@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   BrowserRouter as Router, 
   Routes, 
@@ -12,12 +13,14 @@ import HomeScreen from './screens/HomeScreen'
 import CartScreen from './screens/CartScreen'
 import ProductScreen from './screens/ProductScreen'
 import SuccessScreen from './screens/SuccessScreen'
+import LoginScreen from './screens/LoginScreen'
 
 import CartProvider from './CartContext'
 
 require('./App.css')
 
 function App() {
+  const [user, setUser] = useState({})
 
   const handleNotify = (message, type) => {
     if (type === 'warning') {
@@ -40,6 +43,7 @@ function App() {
           <Route path="/product/:id" element={<ProductScreen notify={handleNotify}/>} exact/>
           <Route path="/cart" element={<CartScreen notify={handleNotify}/>} exact/>
           <Route path="/order/success" element={<SuccessScreen />} />
+          <Route path="/login" element={<LoginScreen setUser={setUser}/>} />
         </Routes>
        </div>
        </CartProvider>
