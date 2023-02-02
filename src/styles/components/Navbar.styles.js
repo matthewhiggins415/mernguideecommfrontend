@@ -18,3 +18,13 @@ export const NavbarLink = styled(Link)`
   text-decoration: none;
   letter-spacing: 1.2px;
 `
+
+export const SignoutBtn = styled.button`
+  padding: 15px 10px;
+  background-color: transparent;
+  color: white;
+  font-size: 22px;
+  font-weight: 700;
+  cursor: pointer;
+  border: none;
+`

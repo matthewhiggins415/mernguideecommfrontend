@@ -37,7 +37,7 @@ function App() {
     <Router>
       <CartProvider>
        <div>
-        <Navbar user={user}/>
+        <Navbar user={user} setUser={setUser}/>
         <ToastContainer theme="light" position="top-right" autoClose={1500}/>
         <Routes>
           <Route path="/" element={<HomeScreen notify={handleNotify}/>} exact/>

@@ -11,3 +11,12 @@ export const loginUser = (formData) => {
     }
   })
 }
+
+//logout
+export const signOut = (user) => {
+  return axios.delete(apiUrl + '/sign-out', {
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
