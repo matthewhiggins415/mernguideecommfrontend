@@ -14,6 +14,7 @@ import CartScreen from './screens/CartScreen'
 import ProductScreen from './screens/ProductScreen'
 import SuccessScreen from './screens/SuccessScreen'
 import LoginScreen from './screens/LoginScreen'
+import AdminHome from './screens/AdminHome'
 
 import CartProvider from './CartContext'
 
@@ -36,14 +37,15 @@ function App() {
     <Router>
       <CartProvider>
        <div>
-        <Navbar />
+        <Navbar user={user}/>
         <ToastContainer theme="light" position="top-right" autoClose={1500}/>
         <Routes>
           <Route path="/" element={<HomeScreen notify={handleNotify}/>} exact/>
           <Route path="/product/:id" element={<ProductScreen notify={handleNotify}/>} exact/>
           <Route path="/cart" element={<CartScreen notify={handleNotify}/>} exact/>
           <Route path="/order/success" element={<SuccessScreen />} />
-          <Route path="/login" element={<LoginScreen setUser={setUser}/>} />
+          <Route path="/login" element={<LoginScreen setUser={setUser} handleNotify={handleNotify}/>} />
+          <Route path="/adminhome" element={<AdminHome user={user}/>} />
         </Routes>
        </div>
        </CartProvider>

@@ -1,0 +1,42 @@
+import React, { useState, useEffect } from 'react'
+import { Navigate } from 'react-router-dom'
+import { getAllProducts } from '../api/product'
+import AdminProduct from '../components/AdminProduct'
+import { Container, Header, Btn } from '../styles/screens/AdminHome.styles'
+
+const AdminHome = ({ user }) => {
+  console.log(user)
+  const [products, setProducts] = useState([])
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      let response = await getAllProducts()
+      console.log(response)
+      setProducts(response.data.products)
+    }
+
+    fetchProducts()
+  }, [])
+
+  if (user.admin === false) {
+    return <Navigate to="/login" />
+  }
+
+  if (Object.keys(user).length === 0) {
+    return <Navigate to="/login" />
+  } 
+
+  return (
+    <Container>
+      <Header>
+        <h3>Admin Home</h3>
+        <Btn>create</Btn>
+      </Header>
+      {products.length > 0 ? products.map((product) => (
+        <AdminProduct product={product} key={product._id}/>
+      )) : null}
+    </Container>
+  )
+}
+
+export default AdminHome

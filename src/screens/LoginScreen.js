@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { loginUser } from '../api/user'
+import { useNavigate } from 'react-router-dom'
 import { Container, Form, Input, Btn } from '../styles/screens/LoginScreen.styles'
 
-const LoginScreen = ({ setUser }) => {
+const LoginScreen = ({ setUser, handleNotify }) => {
+  const navigate = useNavigate()
   const [formData, setFormData] = useState({
     email: '', 
     password: ''
@@ -19,9 +21,16 @@ const LoginScreen = ({ setUser }) => {
     e.preventDefault()
 
     // make api call to back login route
-    let response = await loginUser(formData)
-    console.log(response)
-    setUser(response.data.user)
+
+    try {
+      let response = await loginUser(formData)
+      console.log(response)
+      setUser(response.data.user)
+      navigate('/adminhome')
+    } catch(err) {
+      console.log(err)
+      handleNotify("login failed", "warning")
+    }
   }
 
   return (
