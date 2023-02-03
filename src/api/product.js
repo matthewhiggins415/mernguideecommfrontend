@@ -2,6 +2,14 @@ import apiUrl from '../apiConfig'
 import axios from 'axios'
 
 // create 
+export const createProduct = (user) => {
+  let body = ''
+  return axios.post(apiUrl + '/product', body, {
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
 
 // read all 
 export const getAllProducts = () => {

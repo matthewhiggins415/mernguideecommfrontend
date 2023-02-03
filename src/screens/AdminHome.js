@@ -3,6 +3,7 @@ import { Navigate } from 'react-router-dom'
 import { getAllProducts } from '../api/product'
 import AdminProduct from '../components/AdminProduct'
 import { Container, Header, Btn } from '../styles/screens/AdminHome.styles'
+import { createProduct } from '../api/product'
 
 const AdminHome = ({ user }) => {
   console.log(user)
@@ -26,11 +27,17 @@ const AdminHome = ({ user }) => {
     return <Navigate to="/login" />
   } 
 
+  const handleCreateProduct = async (user) => {
+    let response = await createProduct(user)
+    console.log(response)
+    setProducts(response.data.products)
+  }
+
   return (
     <Container>
       <Header>
         <h3>Admin Home</h3>
-        <Btn>create</Btn>
+        <Btn onClick={() => handleCreateProduct(user)}>create</Btn>
       </Header>
       {products.length > 0 ? products.map((product) => (
         <AdminProduct product={product} key={product._id}/>
