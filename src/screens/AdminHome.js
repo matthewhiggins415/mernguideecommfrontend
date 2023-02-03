@@ -40,7 +40,7 @@ const AdminHome = ({ user }) => {
         <Btn onClick={() => handleCreateProduct(user)}>create</Btn>
       </Header>
       {products.length > 0 ? products.map((product) => (
-        <AdminProduct product={product} key={product._id}/>
+        <AdminProduct setProducts={setProducts} user={user} product={product} key={product._id}/>
       )) : null}
     </Container>
   )

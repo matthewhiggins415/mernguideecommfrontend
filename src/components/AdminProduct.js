@@ -1,7 +1,14 @@
 import React from 'react'
 import { InfoContainer, Img, Container, BtnContainer, Btn, DeleteBtn } from '../styles/components/AdminProduct.styles'
+import { deleteAProduct } from '../api/product'
 
-const AdminProduct = ({ product }) => {
+const AdminProduct = ({ setProducts, user, product }) => {
+
+  const handleDelete = async (user, id) => {
+    let response = await deleteAProduct(user, id)
+    console.log(response)
+    setProducts(response.data.products)
+  }
   return (
     <Container>
       <InfoContainer>
@@ -10,7 +17,7 @@ const AdminProduct = ({ product }) => {
       </InfoContainer>
       <BtnContainer>
         <Btn>edit</Btn>
-        <DeleteBtn>x</DeleteBtn>
+        <DeleteBtn onClick={() => handleDelete(user, product._id)}>x</DeleteBtn>
       </BtnContainer>
     </Container>
   )

@@ -24,3 +24,10 @@ export const getASingleProduct = (id) => {
 // update 
 
 // delete 
+export const deleteAProduct = (user, id) => {
+  return axios.delete(apiUrl + `/products/${id}`, {
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
