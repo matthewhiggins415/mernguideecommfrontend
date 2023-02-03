@@ -10,7 +10,7 @@ const Navbar = ({ user, setUser }) => {
     let response = await signOut(user)
     console.log(response)
 
-    if (response.status == 204) {
+    if (response.status === 204) {
       setUser({})
       navigate('/login')
     }

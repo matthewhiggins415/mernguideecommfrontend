@@ -4,10 +4,13 @@ import { getAllProducts } from '../api/product'
 import AdminProduct from '../components/AdminProduct'
 import { Container, Header, Btn } from '../styles/screens/AdminHome.styles'
 import { createProduct } from '../api/product'
+import EditProductModal from '../components/EditProductModal'
 
 const AdminHome = ({ user }) => {
   console.log(user)
   const [products, setProducts] = useState([])
+  const [showModal, setShowModal] = useState(false)
+  const [selectedProduct, setSelectedProduct] = useState({})
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -34,15 +37,18 @@ const AdminHome = ({ user }) => {
   }
 
   return (
+    <>
+    <EditProductModal setSelectedProduct={setSelectedProduct} selectedProduct={selectedProduct} showModal={showModal} setShowModal={setShowModal}/>
     <Container>
       <Header>
         <h3>Admin Home</h3>
         <Btn onClick={() => handleCreateProduct(user)}>create</Btn>
       </Header>
       {products.length > 0 ? products.map((product) => (
-        <AdminProduct setProducts={setProducts} user={user} product={product} key={product._id}/>
+        <AdminProduct setSelectedProduct={setSelectedProduct} setShowModal={setShowModal} setProducts={setProducts} user={user} product={product} key={product._id}/>
       )) : null}
     </Container>
+    </>
   )
 }
 
