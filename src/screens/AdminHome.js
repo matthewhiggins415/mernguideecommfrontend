@@ -38,7 +38,7 @@ const AdminHome = ({ user }) => {
 
   return (
     <>
-    <EditProductModal setSelectedProduct={setSelectedProduct} selectedProduct={selectedProduct} showModal={showModal} setShowModal={setShowModal}/>
+    <EditProductModal user={user} setSelectedProduct={setSelectedProduct} selectedProduct={selectedProduct} showModal={showModal} setShowModal={setShowModal} setProducts={setProducts}/>
     <Container>
       <Header>
         <h3>Admin Home</h3>

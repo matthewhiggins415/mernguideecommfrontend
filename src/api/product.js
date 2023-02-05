@@ -22,6 +22,13 @@ export const getASingleProduct = (id) => {
 }
 
 // update 
+export const updateAProduct = (user, id, product) => {
+  return axios.patch(apiUrl + `/products/${id}`, product, {
+    headers: {
+      Authorization: `Bearer ${user.token}`
+    }
+  })
+}
 
 // delete 
 export const deleteAProduct = (user, id) => {
